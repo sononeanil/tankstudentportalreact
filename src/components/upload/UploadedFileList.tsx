@@ -1,4 +1,4 @@
-import { Box, Button, Container, FormControl, FormErrorMessage, FormLabel, GridItem, Input, List, ListItem, Select, SimpleGrid, useToast, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, FormControl, FormErrorMessage, FormLabel, Select, useToast, VStack } from "@chakra-ui/react";
 import { useGetAllUploadedFilesList, usePublishUpload } from "../../tanstack/tanstack"
 import { useMutation } from "@tanstack/react-query";
 import { mutationCreateUpload } from "../../Api";
@@ -55,7 +55,7 @@ const UploadedFileList = () => {
         alert("Create publish upload");
     }
 
-    const { register, handleSubmit, reset, formState: { errors, isSubmitting } }
+    const { register, handleSubmit, formState: { errors } }
         = useForm<PublishUploadType>({ resolver: zodResolver(publishUpload) })
 
     const { data } = useGetAllUploadedFilesList();
