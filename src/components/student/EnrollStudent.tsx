@@ -1,4 +1,4 @@
-import { Button, Checkbox, Container, FormControl, FormErrorMessage, FormLabel, GridItem, Input, SimpleGrid, useToast } from "@chakra-ui/react"
+import { Button, Container, FormControl, FormErrorMessage, FormLabel, GridItem, Input, SimpleGrid, useToast } from "@chakra-ui/react"
 import { useMutation } from "@tanstack/react-query"
 import { mutationCreateStudent } from "../../Api";
 import { useForm, type SubmitHandler } from "react-hook-form";

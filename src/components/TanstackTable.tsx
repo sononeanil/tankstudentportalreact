@@ -2,7 +2,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable, type ColumnDef } from "@tanstack/react-table"
 import { delteCustomer, getCustomerList } from "../Api";
 import type { customer } from "../types/postType";
-import { DeleteIcon } from "lucide-react";
 
 const columhelper = createColumnHelper<customer>()
 

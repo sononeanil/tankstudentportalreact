@@ -15,14 +15,10 @@ import {
     SimpleGrid,
     Stack,
     Text,
-    useToast,
+
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { studentSchema, type StudentType } from "../types/userType";
-import { useMutation } from "@tanstack/react-query";
-import { mutationCreateStudent } from "../Api";
+
 
 const PersonalDetails = () => {
     // Load user info from localStorage
@@ -45,41 +41,6 @@ const PersonalDetails = () => {
         setIsEditing(false);
     };
 
-    const toast = useToast();
-
-
-    const { mutateAsync } = useMutation({
-        mutationFn: mutationCreateStudent,
-
-        onError: (err: any) => {
-            toast({
-                title: "CreateStudent failed",
-                description: err.message,
-                status: "error",
-                duration: null,
-                isClosable: true,
-                position: "top",
-            });
-
-        },
-        onSuccess: () => {
-            // console.log("Registration successful");
-            reset();
-            toast({
-                title: "CreateStudent successful!",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "top",
-
-            });
-        },
-    })
-
-
-
-    const { reset }
-        = useForm<StudentType>({ resolver: zodResolver(studentSchema) })
 
     return (
         <>

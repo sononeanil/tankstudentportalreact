@@ -7,48 +7,15 @@ import { publishUpload, type PublishUploadType } from "../../types/userType";
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 const UploadedFileList = () => {
-    const toast = useToast();
-    const { mutateAsync } = useMutation({
-        mutationFn: mutationCreateUpload,
 
-        onError: (err: any) => {
-            toast({
-                title: "CreateUpload failed",
-                description: err.message,
-                status: "error",
-                duration: null,
-                isClosable: true,
-                position: "top",
-            });
-
-        },
-        onSuccess: () => {
-            // console.log("Registration successful");
-            // reset();
-            toast({
-                title: "CreateUpload successful!",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "top",
-
-            });
-        },
-    })
     const publishUploadMutation = usePublishUpload();
 
     const pulishUpload: SubmitHandler<PublishUploadType> = (data: PublishUploadType) => {
         alert("Inside pulishUpload");
         const newpublish: PublishUploadType = {
             id: 0,
-            // uploadedBy: data.uploadedBy,
-            // uploadedDate: data.uploadedDate,
             type: data.type,
-            // standard: data.standard,
-            // subject: data.subject,
             term: data.term,
-            // board: data.board,
-            //Entity: data.//Entity,
         }
         console.log("newpublish", newpublish);
         publishUploadMutation.mutate(newpublish);
@@ -73,7 +40,7 @@ const UploadedFileList = () => {
                 borderRadius={10}
             >
                 <VStack spacing={6} align="stretch">
-                    {data?.map((item, index) => (
+                    {data?.map((index) => (
                         <Box
                             key={index}
                             p={6}
