@@ -6,27 +6,21 @@ import {
     Card,
     CardBody,
     CardHeader,
-    Checkbox,
-    Container,
+
     Divider,
-    FormControl,
-    FormErrorMessage,
-    FormLabel,
-    GridItem,
+
     Heading,
     Input,
-    Select,
+
     SimpleGrid,
     Stack,
     Text,
     useToast,
 } from "@chakra-ui/react";
-import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { studentSchema, userSchema, type StudentType, type UserType } from "../types/userType";
-import { useNavigate } from "react-router";
+import { studentSchema, type StudentType } from "../types/userType";
 import { useMutation } from "@tanstack/react-query";
 import { mutationCreateStudent } from "../Api";
 
@@ -52,7 +46,6 @@ const PersonalDetails = () => {
     };
 
     const toast = useToast();
-    const navigate = useNavigate();
 
 
     const { mutateAsync } = useMutation({
@@ -83,29 +76,9 @@ const PersonalDetails = () => {
         },
     })
 
-    const createStudent: SubmitHandler<StudentType> = (data: StudentType) => {
-        const newStudent: StudentType = {
-            id: 0,
-            firstName: data.firstName,
-            lastName: data.lastName,
-            nickName: data.nickName,
-            email: data.email,
-            age: data.age,
-            classEntrolled: data.classEntrolled,
-            middleName: data.middleName,
-            gender: data.gender,
-            subjectEnrolled: data.subjectEnrolled,
-            attendancePercentage: data.attendancePercentage,
-            dateOfBirth: data.dateOfBirth,
-            dateOfAdmission: data.dateOfAdmission,
-            parentId: data.parentId,
-            //Entity: data.//Entity,
-        }
-        mutateAsync(newStudent)
-        // alert("Create newStudent");
-    }
 
-    const { register, handleSubmit, reset, formState: { errors, isSubmitting } }
+
+    const { reset }
         = useForm<StudentType>({ resolver: zodResolver(studentSchema) })
 
     return (
