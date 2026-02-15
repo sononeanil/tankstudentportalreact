@@ -1,6 +1,4 @@
 import { GridItem, Heading, Card, CardHeader, CardBody, Stack, Grid, Box } from "@chakra-ui/react"
-import { ChartArea } from "lucide-react";
-import { data } from "react-router";
 
 import { AreaChart, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Area, Bar, Legend, PieChart, Pie, Cell, LineChart, Line, ResponsiveContainer } from "recharts"
 

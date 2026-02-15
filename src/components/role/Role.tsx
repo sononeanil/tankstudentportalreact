@@ -3,7 +3,7 @@ import { Box, Button, Checkbox, CheckboxGroup, FormControl, FormLabel, GridItem,
 import { useState } from "react";
 
 import { getUserRole, updateUserRoles } from "../../Api";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import type { UpdateUserRoleType } from "../../types/userType";
 
 const Role = () => {
