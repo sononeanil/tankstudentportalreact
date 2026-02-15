@@ -47,15 +47,10 @@ export type StudentType = z.infer<typeof studentSchema>;
 
 export const publishUpload = z.object({
     id: z.number().optional(),
-
-    // uploadedBy: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    // uploadedDate: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    type: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    // standard: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    // subject: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    term: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered),
-    // board: z.string().transform(valueEntered => valueEntered === "" ? undefined : valueEntered)
+    type: z.string().optional(),
+    term: z.string().optional(),
 })
+
 
 export type PublishUploadType = z.infer<typeof publishUpload>;
 
